@@ -1,0 +1,20 @@
+{
+  "name": "meal-tracker",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Joel Delight <thefencingflutist@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
