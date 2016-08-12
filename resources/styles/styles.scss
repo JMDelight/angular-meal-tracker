@@ -1,5 +1,9 @@
 $gray : #6e6e6e;
 
+input {
+  color: $gray;
+}
+
 .my-btn {
   background-color: $gray;
 }
@@ -9,6 +13,7 @@ $gray : #6e6e6e;
   padding-bottom: 20px;
 }
 
-input {
-  color: $gray;
+.food-item {
+  text-align: left;
+  padding-left: 41.5%;
 }

@@ -5,8 +5,10 @@ import { Food } from './food.model';
   selector: 'food-display',
   inputs: ['food'],
   template: `
-    <div>
-      <p class="css-food">{{ food.name }} | {{ food.details }} | {{ food.calories}}</p>
+    <div class="food-item">
+      <h4>Food: {{ food.name }}</h4>
+      <p>Details: {{ food.details }}</p>
+      <p>Calories: {{ food.calories}}</p>
     </div>
   `
 })
