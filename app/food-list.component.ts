@@ -36,8 +36,8 @@ import { CaloriePipe } from './calorie.pipe';
       </form>
     </div>
     <div class="">
-    <h4>Total calories = {{ countCalories() }}</h4>
       <h4>Foods Added</h4>
+      <h4>Total calories for displayed foods = {{ countCalories(foods | calorie: calorieLevelProperty: calorieOperandProperty) }}</h4>
       <food-display *ngFor="#currentFood of foods | calorie: calorieLevelProperty: calorieOperandProperty" [food]="currentFood" (click)="foodClicked(currentFood)" ></food-display>
     </div>
     <edit-food *ngIf="selectedFood" [food]="selectedFood"></edit-food>
@@ -49,7 +49,7 @@ export class FoodListComponent {
   public calorieLevelProperty: number = 500;
   public calorieOperandProperty: string = "all";
   constructor(){}
-  
+
   foodClicked(clickedFood: Food) {
     this.selectedFood = clickedFood;
   }
@@ -65,9 +65,9 @@ export class FoodListComponent {
   onCalorieChange(filterOption) {
     this.calorieLevelProperty = parseInt(filterOption);
   }
-  countCalories() {
+  countCalories(foods: Food[]) {
     var totalCalories: number = 0;
-    this.foods.forEach(function(item) {
+    foods.forEach(function(item) {
       totalCalories += item.calories;
     })
     return totalCalories;
