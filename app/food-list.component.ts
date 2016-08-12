@@ -5,7 +5,6 @@ import { AddFoodComponent } from './add-food.component';
 import { EditFoodComponent } from './edit-food.component';
 import { CaloriePipe } from './calorie.pipe';
 
-
 @Component({
   selector: 'food-list',
   directives: [FoodComponent, AddFoodComponent, EditFoodComponent],
@@ -42,7 +41,6 @@ import { CaloriePipe } from './calorie.pipe';
       <food-display *ngFor="#currentFood of foods | calorie: calorieLevelProperty: calorieOperandProperty" [food]="currentFood" (click)="foodClicked(currentFood)" ></food-display>
     </div>
     <edit-food *ngIf="selectedFood" [food]="selectedFood"></edit-food>
-
   `
 })
 export class FoodListComponent {
@@ -50,8 +48,8 @@ export class FoodListComponent {
   public selectedFood: Food;
   public calorieLevelProperty: number = 500;
   public calorieOperandProperty: string = "all";
-
   constructor(){}
+  
   foodClicked(clickedFood: Food) {
     this.selectedFood = clickedFood;
   }

@@ -29,7 +29,7 @@ _If you have any questions or concerns, please email me at thefencingflutist@gma
 
 ## Technologies Used
 
-_Javascript, NPM, Gulp, Bower, jQuery, bootstrap, typescript, Angular2_
+_Javascript, NPM, Gulp, Bower, jQuery, bootstrap, typescript, Angular2, Sass_
 
 ### License
 

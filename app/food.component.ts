@@ -9,7 +9,6 @@ import { Food } from './food.model';
       <p class="css-food">{{ food.name }} | {{ food.details }} | {{ food.calories}}</p>
     </div>
   `
-
 })
 export class FoodComponent {
   public food: Food;

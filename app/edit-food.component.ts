@@ -14,7 +14,6 @@ import { Food } from './food.model';
   <input type="number" min=0 [(ngModel)]="food.calories" id="edit-calories">
   `
 })
-
 export class EditFoodComponent {
   public food: Food;
 }

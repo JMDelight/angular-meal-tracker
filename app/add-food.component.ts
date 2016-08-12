@@ -17,7 +17,6 @@ import { Food } from './food.model';
   </div>
   `
 })
-
 export class AddFoodComponent {
   public onSubmit: EventEmitter<[string, string, number]>;
   public specialties: string[];
