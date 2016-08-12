@@ -12,16 +12,34 @@ import { CaloriePipe } from './calorie.pipe';
   inputs: ['foods'],
   pipes: [CaloriePipe],
   template: `
-    <select (change)="onOperandChange($event.target.value)">
-      <option value="all">Show All</option>
-      <option value="less">Show Low Calorie Foods</option>
-      <option value="greater">Show High Calorie Foods</option>
-    </select>
+    <div class="container">
+      <add-food (onSubmit)="createFood($event)" ></add-food>
+    </div>
+    <div class="container">
+      <h4>Filter Options</h4>
+      <label for="calorie-category">Filter by Calorie Type</label>
+      <select (change)="onOperandChange($event.target.value)" id="calorie-category">
+        <option value="all">Show All</option>
+        <option value="less">Show Lower Calorie Foods</option>
+        <option value="greater">Show Higher Calorie Foods</option>
+      </select>
+      <label for="calorie-amount">Number of Calories</label>
+      <select (change)="onCalorieChange($event.target.value)" id="calorie-amount">
+      <option value="100">100 Calories</option>
+      <option value="200">200 Calories</option>
+      <option value="300">300 Calories</option>
+      <option value="400">400 Calories</option>
+      <option value="500" selected>500 Calories</option>
+      <option value="600">600 Calories</option>
+      <option value="700">700 Calories</option>
+      </select>
+
+
+    </div>
     <div class="container">
       <food-display *ngFor="#currentFood of foods | calorie: calorieLevelProperty: calorieOperandProperty" [food]="currentFood" (click)="foodClicked(currentFood)" ></food-display>
     </div>
     <edit-food *ngIf="selectedFood" [food]="selectedFood"></edit-food>
-    <add-food (onSubmit)="createFood($event)" ></add-food>
 
   `
 })
@@ -42,5 +60,9 @@ export class FoodListComponent {
   }
   onOperandChange(filterOption: string) {
     this.calorieOperandProperty = filterOption;
+    console.log(this.calorieLevelProperty);
+  }
+  onCalorieChange(filterOption) {
+    this.calorieLevelProperty = parseInt(filterOption);
   }
 }
