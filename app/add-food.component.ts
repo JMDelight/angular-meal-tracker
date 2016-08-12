@@ -7,13 +7,13 @@ import { Food } from './food.model';
   template: `
   <div>
     <h3>Add New Food</h3>
-    <label for="name">Food Name</label>
+    <label for="name">Add Food</label>
     <input placeholder="Name" #newName id="name">
-    <label for="details">Food Details</label>
+    <label for="details">Details</label>
     <input placeholder="Details" #newDetails id="details">
-    <label for="calories">Food Calories</label>
+    <label for="calories">Calories</label>
     <input type="number" min=0 placeholder="kiloCalories" #newCalories id="calories">
-    <button (click)="addFood(newName, newDetails, newCalories)">Add</button>
+    <button (click)="addFood(newName, newDetails, newCalories)" class="btn my-btn">Add</button>
   </div>
   `
 })
