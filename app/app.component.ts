@@ -1,12 +1,13 @@
 import { Component } from 'angular2/core';
 import { Food } from './food.model';
+import { FoodListComponent} from './food-list.component';
 
 
 @Component({
   selector: 'my-app',
-  directives: [],
+  directives: [FoodListComponent],
   template: `
-    <h3 *ngFor="#food of foods">{{ food.description }} | {{ food.details}}</h3>
+    <food-list [foods]="foods" [specialties]="specialties"></food-list>
   `
 })
 
