@@ -1,18 +1,21 @@
 import { Component } from 'angular2/core';
 import { Food } from './food.model';
 import { FoodComponent } from './food.component';
+import { AddFoodComponent } from './add-food.component';
+
 
 @Component({
   selector: 'food-list',
-  directives: [FoodComponent],
+  directives: [FoodComponent, AddFoodComponent],
   inputs: ['foods'],
   pipes: [],
   template: `
 
     <div class="container">
-      <h3 *ngFor="#food of foods">{{ food.description }} | {{ food.details}}</h3>
       <food-display *ngFor="#currentFood of foods" [food]="currentFood" (click)="foodClicked(currentFood)" ></food-display>
     </div>
+    <add-food (onSubmit)="createFood($event)" ></add-food>
+
 
   `
 })
@@ -24,5 +27,11 @@ export class FoodListComponent {
   foodClicked(clickedFood: Food) {
     this.selectedFood = clickedFood;
     console.log(this.selectedFood);
+  }
+
+  createFood(args: [string, string, number]) {
+    this.foods.push(
+      new Food(args[0], args[1], args[2], this.foods.length)
+    );
   }
 }
